@@ -1,52 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>シフト提出フォーム</title>
-</head>
-<body>
+<form id="shiftForm" method="POST" action="https://script.google.com/macros/s/AKfycbynjqrlr_6wHq5UDQaIYpV--_UF-yi01syUlaRRCn9p/dev">
+  <label for="registrationNumber">登録番号:</label>
+  <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
 
-  <h2>シフト提出フォーム</h2>
+  <label for="name">名前:</label>
+  <input type="text" id="name" name="name" required><br><br>
 
-  <form id="shiftForm" method="POST" action="https://script.google.com/macros/s/AKfycbynjqrlr_6wHq5UDQaIYpV--_UF-yi01syUlaRRCn9p/dev">
-    <label for="registrationNumber">登録番号:</label>
-    <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+  <label for="workplace">希望現場:</label>
+  <input type="text" id="workplace" name="workplace" required><br><br>
 
-    <label for="name">名前:</label>
-    <input type="text" id="name" name="name" required><br><br>
+  <label for="employmentDate">就業希望日:</label>
+  <input type="text" id="employmentDate" name="employmentDate" placeholder="例: 2025-03-01" required><br><br>
 
-    <label for="workplace">希望現場:</label>
-    <input type="text" id="workplace" name="workplace" required><br><br>
-
-    <label for="employmentDate">就業希望日:</label>
-    <input type="text" id="employmentDate" name="employmentDate" placeholder="例: 2025-03-01" required><br><br>
-
-    <input type="submit" value="送信">
-  </form>
-
-  <script>
-    // フォーム送信時にAJAXを使用して非同期に送信する方法（オプション）
-    document.getElementById("shiftForm").addEventListener("submit", function(event){
-      event.preventDefault();  // フォームのデフォルトの送信を防ぐ
-
-      var formData = new FormData(this);
-      
-      // フォームデータを送信
-      fetch('https://script.google.com/macros/s/AKfycbynjqrlr_6wHq5UDQaIYpV--_UF-yi01syUlaRRCn9p/dev', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.text())
-      .then(data => {
-        alert("データが送信されました！");
-        console.log(data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-    });
-  </script>
-
-</body>
-</html>
+  <input type="submit" value="送信">
+</form>
