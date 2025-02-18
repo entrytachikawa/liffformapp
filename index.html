@@ -1,15 +1,29 @@
-<form id="shiftForm" method="POST" action="https://script.google.com/macros/s/AKfycbzPEZ_auZxuhcuopPFt-zmoeC-1nYnVjiPG0fVJIvvAsP6RWGqWfXl1omYyEXJ3moTbzw/exec">
-  <label for="registrationNumber">登録番号:</label>
-  <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シフト提出フォーム</title>
+</head>
+<body>
 
-  <label for="name">名前:</label>
-  <input type="text" id="name" name="name" required><br><br>
+  <h2>シフト提出フォーム</h2>
 
-  <label for="workplace">希望現場:</label>
-  <input type="text" id="workplace" name="workplace" required><br><br>
+  <form id="shiftForm" method="POST" action="https://script.google.com/macros/s/AKfycbzPEZ_auZxuhcuopPFt-zmoeC-1nYnVjiPG0fVJIvvAsP6RWGqWfXl1omYyEXJ3moTbzw/exec">
+    <label for="registrationNumber">登録番号:</label>
+    <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
 
-  <label for="employmentDate">就業希望日:</label>
-  <input type="text" id="employmentDate" name="employmentDate" placeholder="例: 2025-03-01" required><br><br>
+    <label for="name">名前:</label>
+    <input type="text" id="name" name="name" required><br><br>
 
-  <input type="submit" value="送信">
-</form>
+    <label for="workplace">希望現場:</label>
+    <input type="text" id="workplace" name="workplace" required><br><br>
+
+    <label for="employmentDate">就業希望日:</label>
+    <input type="text" id="employmentDate" name="employmentDate" placeholder="例: 2025-03-01" required><br><br>
+
+    <input type="submit" value="送信">
+  </form>
+
+</body>
+</html>
