@@ -1,47 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シフト提出フォーム</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シフト提出フォーム</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="my-4 text-center">シフト提出フォーム</h1>
 
-        <form action="submit_form.php" method="POST">
-            <!-- 登録番号 -->
-            <div class="form-group">
-                <label for="registrationNumber">登録番号</label>
-                <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" placeholder="登録番号を入力" required>
-            </div>
+  <h2>シフト提出フォーム</h2>
 
-            <!-- 名前 -->
-            <div class="form-group">
-                <label for="name">名前</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="名前を入力" required>
-            </div>
+  <form id="shiftForm" method="POST" action="https://script.google.com/macros/s/AKfycbynjqrlr_6wHq5UDQaIYpV--_UF-yi01syUlaRRCn9p/dev">
+    <label for="registrationNumber">登録番号:</label>
+    <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
 
-            <!-- 希望現場 -->
-            <div class="form-group">
-                <label for="workplace">希望現場 (企業名または駅名+作業内容)</label>
-                <input type="text" class="form-control" id="workplace" name="workplace" placeholder="希望現場を入力" required>
-            </div>
+    <label for="name">名前:</label>
+    <input type="text" id="name" name="name" required><br><br>
 
-            <!-- 就業希望日 -->
-            <div class="form-group">
-                <label for="employmentDate">就業希望日</label>
-                <input type="date" class="form-control" id="employmentDate" name="employmentDate" required>
-            </div>
+    <label for="workplace">希望現場:</label>
+    <input type="text" id="workplace" name="workplace" required><br><br>
 
-            <!-- 送信ボタン -->
-            <button type="submit" class="btn btn-primary">送信</button>
-        </form>
-    </div>
+    <label for="employmentDate">就業希望日:</label>
+    <input type="date" id="employmentDate" name="employmentDate" required><br><br>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <input type="submit" value="送信">
+  </form>
+
 </body>
 </html>
