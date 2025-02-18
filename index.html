@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>シフト提出フォーム</title>
-</head>
-<body>
+function doPost(e) {
+  // フォームデータを取得
+  var registrationNumber = e.parameter.registrationNumber;
+  var name = e.parameter.name;
+  var workplace = e.parameter.workplace;
+  var employmentDate = e.parameter.employmentDate;
 
-  <h2>シフト提出フォーム</h2>
+  // ステップ 1: 就業希望日が有効な日付かどうかをチェック
+  var parsedDate = new Date(employmentDate);
+  if (isNaN(parsedDate.getTime())) {
+    // 無効な日付の場合、エラーメッセージを返す
+    return ContentService.createTextOutput("無効な日付が入力されました。正しい形式で入力してください（例: 2025-03-01）。");
+  }
 
-  <form id="shiftForm" method="POST" action="https://script.google.com/macros/s/AKfycbynjqrlr_6wHq5UDQaIYpV--_UF-yi01syUlaRRCn9p/dev">
-    <label for="registrationNumber">登録番号:</label>
-    <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+  // ステップ 2: 受取日を現在の日付に設定
+  var receiveDate = new Date();  // スタッフがフォームを送信した日を受取日として記録
 
-    <label for="name">名前:</label>
-    <input type="text" id="name" name="name" required><br><br>
+  // スプレッドシートの設定
+  var sheet = SpreadsheetApp.openById("1uG0Hw1My5M0NrKEpYgJY4jESsKJHsdrN1XmM7ZmVNmw").getSheetByName("Sheet1");
 
-    <label for="workplace">希望現場:</label>
-    <input type="text" id="workplace" name="workplace" required><br><br>
+  // スプレッドシートにデータを追加（受取日を含めて）
+  sheet.appendRow([registrationNumber, name, workplace, employmentDate, receiveDate]);
 
-    <label for="employmentDate">就業希望日:</label>
-    <input type="text" id="employmentDate" name="employmentDate" required><br><br>
-
-    <input type="submit" value="送信">
-  </form>
-
-</body>
-</html>
+  // レスポンスを返す
+  return ContentService.createTextOutput("データが送信されました！");
+}
